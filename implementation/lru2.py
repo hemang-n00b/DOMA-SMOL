@@ -31,9 +31,9 @@ torch._inductor.config.triton.cudagraph_skip_dynamic_graphs = True
 
 
 MAX_LEN = 100
-os.environ['TRANSFORMERS_CACHE'] = '/scratch/rahul.garg/hfCache'
-os.environ['HF_HOME'] = '/scratch/rahul.garg/hfCache'
-os.environ['TORCH_HOME'] = '/scratch/rahul.garg/torchCache'
+os.environ['TRANSFORMERS_CACHE'] = ''
+os.environ['HF_HOME'] = ''
+os.environ['TORCH_HOME'] = ''
 
 gpu_usage_history = deque(maxlen=MAX_LEN)
 request_count_history = deque(maxlen=MAX_LEN)
@@ -91,7 +91,7 @@ class HFModel:
             f"Loading model '{self.model_name}' onto GPU at {self.gpu_ip}:{self.gpu_port}...")
         # Load the model and tokenizer from Hugging Face
         self.model = AutoModelForCausalLM.from_pretrained(
-            self.model_name,torch_dtype=torch.float16,cache_dir = "/scratch/rahul.garg/hfCache")
+            self.model_name,torch_dtype=torch.float16,cache_dir = "/scratch/rg/hfCache")
         if "gemma" in self.model_name:
             self.tokenizer = GemmaTokenizer.from_pretrained(self.model_name)
         else:

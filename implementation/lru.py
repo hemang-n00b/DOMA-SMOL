@@ -10,9 +10,9 @@ import socket
 import threading
 import sys
 
-os.environ['TRANSFORMERS_CACHE'] = '/scratch/rahul.garg/hfCache'
-os.environ['HF_HOME'] = '/scratch/rahul.garg/hfCache'
-os.environ['TORCH_HOME'] = '/scratch/rahul.garg/torchCache'
+os.environ['TRANSFORMERS_CACHE'] = ''
+os.environ['HF_HOME'] = ''
+os.environ['TORCH_HOME'] = ''
 
 device_id = sys.argv[1]
 os.environ['CUDA_VISIBLE_DEVICES'] = f'{device_id}'

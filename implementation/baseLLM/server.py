@@ -15,7 +15,7 @@ os.environ["CUDA_VISIBLE_DEVICE"] = "2"
 
 model_name = "deepseek-ai/deepseek-moe-16b-base"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name , torch_dtype=torch.float16 , cache_dir = "/scratch/rahul.garg/hfCache" , device_map="auto" , low_cpu_mem_usage=True).to("cuda")
+model = AutoModelForCausalLM.from_pretrained(model_name , torch_dtype=torch.float16 , cache_dir = "/scratch/rg/hfCache" , device_map="auto" , low_cpu_mem_usage=True).to("cuda")
 
 request_queue = queue.Queue()
 

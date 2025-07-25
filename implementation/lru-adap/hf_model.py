@@ -28,7 +28,7 @@ class HFModel:
         
     def load(self):
         print(f"Loading model '{self.model_name}' on GPU {self.gpu_ip}:{self.gpu_port}...")
-        self.model = AutoModelForCausalLM.from_pretrained(self.model_name,torch_dtype=torch.float16, trust_remote_code=True , low_cpu_mem_usage=True ,cache_dir = "/scratch/rahul.garg/hfCache").to("cuda")
+        self.model = AutoModelForCausalLM.from_pretrained(self.model_name,torch_dtype=torch.float16, trust_remote_code=True , low_cpu_mem_usage=True ,cache_dir = "/scratch/rg/hfCache").to("cuda")
         if "gemma" in self.model_name:
             self.tokenizer = GemmaTokenizer.from_pretrained(self.model_name)
         else:
